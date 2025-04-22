@@ -82,14 +82,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     form.addEventListener('input', e => {
-        if (!e.target.matches('textarea')) return;
+        if (!e.target.matches('textarea'))
+            return;
         const out = e.target.closest('.field')?.querySelector('.notes-output');
-        if (!out) return;
-        const highlighted = e.target.value.replace(
+        if (!out)
+            return;
+        out.innerHTML = e.target.value.replace(
             /(срочно|быстрее|побыстрее|скорее|поскорее|очень нужно)/gi,
             '<b>$1</b>'
         );
-        out.innerHTML = highlighted;
     });
 
     submitBtn.addEventListener('click', e => {
